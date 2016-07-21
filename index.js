@@ -1,5 +1,5 @@
 
-// docker run --name nodeproxy --link lookups:lookups --link shinyserver:shinyserver -p 80:3000 -d codemog/node-proxy
+// docker run --name demogproxy --link website:website -p 443:4008 -d codemog/demog-proxy
 // change 80 to 443 when SSL installed
 
 var sslobj={
@@ -14,5 +14,5 @@ var redbird = require('redbird')({
   ,ssl: sslobj
 });
 
-redbird.register('demography.dola.colorado.gov/', 'http://website:4008', {ssl: true});
+redbird.register('23.236.54.199/', 'http://website:4008', {ssl: true});
 
