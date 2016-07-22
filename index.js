@@ -4,15 +4,14 @@
 
 var sslobj={
         port: 443,
-        key: 'ssl/docker/gis_dola_colorado_gov.key',
-        cert: 'ssl/docker/ServerCertificate.crt',
-        ca: 'ssl/docker/ChainBundle2.crt'
+        key: 'home/dola_gcp/server.key',
+        cert: 'home/dola_gcp/server.crt'
 };
 
 var redbird = require('redbird')({
-  port: 80//,
-  //ssl: sslobj
+  port: 443,
+  ssl: sslobj
 });
 
-redbird.register('demography.dola.colorado.gov/', 'http://website:4008', {ssl: false});
+redbird.register('demography.dola.colorado.gov/', 'http://website:4008', {ssl: true});
 
