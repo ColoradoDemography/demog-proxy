@@ -1,6 +1,6 @@
 
-// docker run --name demogproxy --link website:website -p 443:4008 -d codemog/demog-proxy
-// change 80 to 443 when SSL installed
+// docker run --name demogproxy -v /home/dola_gcp:/ssl/docker --link website:website -p 443:443 -d codemog/demog-proxy
+
 
 var sslobj={
         port: 443,
@@ -10,9 +10,9 @@ var sslobj={
 };
 
 var redbird = require('redbird')({
-  port: 443
-  ,ssl: sslobj
+  port: 443,
+  ssl: sslobj
 });
 
-redbird.register('23.236.54.199/', 'http://website:4008', {ssl: true});
+redbird.register('demography.dola.colorado.gov/', 'http://website:4008', {ssl: true});
 
