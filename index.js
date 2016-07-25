@@ -21,4 +21,4 @@ var proxy = require('redbird')({port: 80, xfwd: false});
 
 
 // Route from hostnames as well as paths
-proxy.register("demography.dola.colorado.gov", "http://website:4008");
+proxy.register("http://23.236.54.199", "http://website:4008");
