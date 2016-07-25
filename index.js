@@ -17,7 +17,7 @@
 
 
 
-var proxy = require('redbird')({port: 80});
+var proxy = require('redbird')({port: 80, xfwd: false});
 
 
 // Route from hostnames as well as paths
