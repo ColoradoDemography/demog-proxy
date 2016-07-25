@@ -11,7 +11,7 @@ var sslobj={
 
 var redbird = require('redbird')({ port: 443, xfwd: false, ssl: sslobj });
 
-redbird.register('23.236.54.199', 'http://website:4008', {ssl: true});
+redbird.register('demography.dola.colorado.gov', 'http://website:4008', {ssl: true});
 
 
 
