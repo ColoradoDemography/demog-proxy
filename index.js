@@ -10,8 +10,8 @@ var sslobj={
 };
 
 var redbird = require('redbird')({ port: 443, xfwd: false, ssl: sslobj });
-
 redbird.register('demography.dola.colorado.gov', 'http://website:4008', {ssl: true});
 
 
-
+var http = require('redbird')({ port: 80 });
+http.register('demography.dola.colorado.gov', 'https://demography.dola.colorado.gov');
