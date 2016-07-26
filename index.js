@@ -1,7 +1,32 @@
 
 // docker run --name demogproxy -v /home/dola_gcp:/ssl/docker --link website:website -p 443:443 -p 80:80 -d codemog/demog-proxy
 
+var LEX = require('letsencrypt-express').testing();
 
+// Change these two lines!
+var DOMAIN = 'demography.dola.colorado.gov';
+var EMAIL = 'royhobbstn@yahoo.com';
+
+console.log('homedir: ' + require('os').homedir());
+
+var lex = LEX.create({
+  configDir: require('os').homedir() + '/letsencrypt/etc'
+, approveRegistration: function (hostname, approve) { // leave `null` to disable automatic registration
+    if (hostname === DOMAIN) { // Or check a database or list of allowed domains
+      approve(null, {
+        domains: [DOMAIN]
+      , email: EMAIL
+      , agreeTos: true
+      });
+      continue();
+    }
+  }
+});
+
+
+
+function continue(){
+  
 // http://heyrod.com/snippets/redirect-http-to-https-in-expressjs.html
 var http = require('http');
 var express = require('express');
@@ -44,3 +69,6 @@ var redbird = require('redbird')({ port: 443, xfwd: false, ssl: sslobj });
 redbird.register('demography.dola.colorado.gov', 'http://website:4008', {ssl: true});
 
 
+
+  
+}
