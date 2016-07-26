@@ -18,14 +18,14 @@ var lex = LEX.create({
       , email: EMAIL
       , agreeTos: true
       });
-      continue();
+      continueprogram();
     }
   }
 });
 
 
 
-function continue(){
+function continueprogram(){
   
 // http://heyrod.com/snippets/redirect-http-to-https-in-expressjs.html
 var http = require('http');
