@@ -1,7 +1,8 @@
 
-
 // docker run --name demogproxy -v /home/dola_gcp:/ssl/docker --link website:website -p 443:443 -p 80:80 -d codemog/demog-proxy
 
+
+// http://heyrod.com/snippets/redirect-http-to-https-in-expressjs.html
 var http = require('http');
 var express = require('express');
 var HTTP_PORT  = 80;
@@ -30,6 +31,7 @@ http.createServer(http_app).listen(HTTP_PORT).on('listening', function() {
 
 
 
+// redbird
 
 var sslobj={
         port: 443,
