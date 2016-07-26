@@ -1,5 +1,5 @@
 
-// docker run --name demogproxy -v /etc/letsencrypt/live/demography.dola.colorado.gov:/ssl/docker --link website:website -p 443:443 -p 80:80 -d codemog/demog-proxy
+// docker run --name demogproxy -v /etc/letsencrypt/archive/demography.dola.colorado.gov:/ssl/docker --link website:website -p 443:443 -p 80:80 -d codemog/demog-proxy
 
   
 // http://heyrod.com/snippets/redirect-http-to-https-in-expressjs.html
@@ -35,14 +35,11 @@ http.createServer(http_app).listen(HTTP_PORT).on('listening', function() {
 
 var sslobj={
         port: 443,
-        key: 'ssl/docker/privkey.pem',
-        cert: 'ssl/docker/fullchain.pem',  
-        ca: 'ssl/docker/chain.pem'
+        key: 'ssl/docker/privkey1.pem',
+        cert: 'ssl/docker/fullchain1.pem',  
+        ca: 'ssl/docker/chain1.pem'
 };
 
 var redbird = require('redbird')({ port: 443, xfwd: false, ssl: sslobj });
 redbird.register('demography.dola.colorado.gov', 'http://website:4008', {ssl: true});
 
-
-
-  
