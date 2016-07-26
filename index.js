@@ -27,6 +27,8 @@ var lex = LEX.create({
 
 function continueprogram(){
   
+  console.log('continue-ing');
+  
 // http://heyrod.com/snippets/redirect-http-to-https-in-expressjs.html
 var http = require('http');
 var express = require('express');
