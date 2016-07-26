@@ -4,6 +4,7 @@
   "description": "proxy for demography.dola.colorado.gov",
   "main": "index.js",
   "dependencies": {
+    "express": "^4.14.0",
     "redbird": "^0.5.2"
   },
   "devDependencies": {},
