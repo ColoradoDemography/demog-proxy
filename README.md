@@ -12,12 +12,11 @@ Free SSL is provided by [Let's Encrypt](https://letsencrypt.org/).  In the 'Spir
 The full SSL update process is as follows:
 
 ```
-
 docker stop demogproxy
 
 docker run -it --rm -p 443:443 -p 80:80 --name certbot -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" quay.io/letsencrypt/letsencrypt:latest renew
 
 docker restart demogproxy
-
-
 ```
+
+Adapted from: http://letsencrypt.readthedocs.io/en/latest/using.html#running-with-docker
