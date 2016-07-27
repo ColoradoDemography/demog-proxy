@@ -20,3 +20,7 @@ docker restart demogproxy
 ```
 
 Adapted from: http://letsencrypt.readthedocs.io/en/latest/using.html#running-with-docker
+
+&
+
+https://certbot.eff.org/docs/using.html#renewal
