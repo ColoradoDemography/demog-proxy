@@ -11,12 +11,22 @@ Free SSL is provided by [Let's Encrypt](https://letsencrypt.org/).  In the 'Spir
 
 The full SSL update process is as follows:
 
+1) Change the digits in the sslobj variable in the index.js file to increase by 1 digit (e.g. cert2.pem becomes cert3.pem) the commit and wait for the image to rebuild on dockerhub.
+
+
+2) Run these commands:
+
 ```
 docker stop demogproxy
 
+docker rm demogproxy
+
 docker run -it --rm -p 443:443 -p 80:80 --name certbot -v "/etc/letsencrypt:/etc/letsencrypt" -v "/var/lib/letsencrypt:/var/lib/letsencrypt" quay.io/letsencrypt/letsencrypt:latest renew
 
-docker restart demogproxy
+docker pull codemog/demog-proxy 
+
+docker run --restart unless-stopped  --name demogproxy -v /etc/letsencrypt/archive/demography.dola.colorado.gov:/ssl/docker --link website:website -p 443:443 -p 80:80 -d codemog/demog-proxy
+
 ```
 __USE THIS SITE IF YOU NEED A NEW CERTIFICATE__
 
