@@ -1,5 +1,5 @@
 
-// docker run --name demogproxy -v /etc/letsencrypt/archive/demography.dola.colorado.gov:/ssl/docker --link website:website -p 443:443 -p 80:80 -d codemog/demog-proxy
+//   docker run --name demogproxy -v /etc/letsencrypt/archive/demography.dola.colorado.gov:/ssl/docker --link website:website -p 443:443 -p 80:80 -d codemog/demog-proxy
 
   
 // http://heyrod.com/snippets/redirect-http-to-https-in-expressjs.html
