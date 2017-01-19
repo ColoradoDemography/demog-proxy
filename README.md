@@ -28,6 +28,14 @@ docker pull codemog/demog-proxy
 docker run --restart unless-stopped  --name demogproxy -v /etc/letsencrypt/archive/demography.dola.colorado.gov:/ssl/docker --link website:website -p 443:443 -p 80:80 -d codemog/demog-proxy
 
 ```
+
+3) Check expiration dates:
+
+```
+openssl x509 -noout -dates -in /etc/letsencrypt/live/demography.dola.colorado.gov/cert.pem
+
+```
+
 __USE THIS SITE IF YOU NEED A NEW CERTIFICATE__
 
 Adapted from: http://letsencrypt.readthedocs.io/en/latest/using.html#running-with-docker
