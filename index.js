@@ -42,5 +42,5 @@ var sslobj={
 
 var redbird = require('redbird')({ port: 443, xfwd: false, ssl: sslobj });
 redbird.register('demography.dola.colorado.gov', 'http://website:4008', {ssl: true});
-redbird.register('demography.dola.colorado.gov/profiles', 'http://shiny-profiles:3838', {ssl: true});
+redbird.register('demography.dola.colorado.gov/apps', 'http://shiny-profiles:3838', {ssl: true});
 
