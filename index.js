@@ -35,9 +35,9 @@ http.createServer(http_app).listen(HTTP_PORT).on('listening', function() {
 
 var sslobj={
         port: 443,
-        key: 'ssl/docker/privkey16.pem',
-        cert: 'ssl/docker/fullchain16.pem',  
-        ca: 'ssl/docker/chain16.pem'
+        key: 'ssl/docker/privkey17.pem',
+        cert: 'ssl/docker/fullchain17.pem',  
+        ca: 'ssl/docker/chain17.pem'
 };
 
 var redbird = require('redbird')({ port: 443, xfwd: false, ssl: sslobj });
