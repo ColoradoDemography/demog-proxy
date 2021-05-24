@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.14.0",
-    "redbird": "^0.5.2"
+    "redbird": "^0.9.1"
   },
   "devDependencies": {},
   "scripts": {
