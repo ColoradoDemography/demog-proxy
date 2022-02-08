@@ -13,6 +13,7 @@ var http_app = express();
 http_app.set('port', HTTP_PORT);
 
 http_app.all('/*', function(req, res, next) {
+  console.log(req.url)
   res.status(404).redirect('http://gis.dola.colorado.gov'+req.url)
   if (/^http$/.test(req.protocol)) {
     var host = req.headers.host.replace(/:[0-9]+$/g, ""); // strip the port # if any
