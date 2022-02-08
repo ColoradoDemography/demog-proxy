@@ -13,8 +13,8 @@ var http_app = express();
 http_app.set('port', HTTP_PORT);
 
 http_app.all('/*', function(req, res, next) {
-  console.log(req.url)
-  res.status(404).redirect('http://gis.dola.colorado.gov'+req.url)
+  console.log(req.url);
+  return res.status(404).redirect('http://gis.dola.colorado.gov'+req.url);
   if (/^http$/.test(req.protocol)) {
     var host = req.headers.host.replace(/:[0-9]+$/g, ""); // strip the port # if any
     if ((HTTPS_PORT != null) && HTTPS_PORT !== 443) {
@@ -27,9 +27,9 @@ http_app.all('/*', function(req, res, next) {
   }
 });
 
-//http_app.use((req, res) => {
-//    res.status(404).redirect('http://gis.dola.colorado.gov'+req.url)
-//});
+http_app.use((req, res) => {
+    res.status(404).redirect('http://gis.dola.colorado.gov'+req.url);
+});
 
 http.createServer(http_app).listen(HTTP_PORT).on('listening', function() {
   return console.log("HTTP to HTTPS redirect app launched.");
