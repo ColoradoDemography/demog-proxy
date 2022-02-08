@@ -29,10 +29,18 @@ http.createServer(http_app).listen(HTTP_PORT).on('listening', function() {
   return console.log("HTTP to HTTPS redirect app launched.");
 });
 
-http_app.use((req, res) => {
-  console.log(req.url);
-    res.status(404).redirect('http://gis.dola.colorado.gov'+req.url);
+http_app.error(function(err, req, res, next){
+    if (err instanceof NotFound) {
+      console.log(req.url);
+        res.redirect('http://gis.dola.colorado.gov'+req.url);
+    } else {
+        next(err);
+    }
 });
+
+//http_app.use((req, res) => {
+//    res.status(404).redirect('http://gis.dola.colorado.gov'+req.url);
+//});
 
 // redbird
 
