@@ -35,7 +35,7 @@ var sslobj={
         port: 443,
         key: 'ssl/docker/privkey39.pem',
         cert: 'ssl/docker/fullchain39.pem',  
-        ca: 'ssl/docker/chain37.pem',
+        ca: 'ssl/docker/chain39.pem',
         secureOptions: constants.SSL_OP_NO_TLSv1 | constants.SSL_OP_NO_TLSv1_1
 };
 
