@@ -33,9 +33,9 @@ http.createServer(http_app).listen(HTTP_PORT).on('listening', function() {
 
 var sslobj={
         port: 443,
-        key: 'ssl/docker/privkey39.pem',
-        cert: 'ssl/docker/fullchain39.pem',  
-        ca: 'ssl/docker/chain39.pem',
+        key: 'ssl/docker/privkey40.pem',
+        cert: 'ssl/docker/fullchain40.pem',  
+        ca: 'ssl/docker/chain40.pem',
         secureOptions: constants.SSL_OP_NO_TLSv1 | constants.SSL_OP_NO_TLSv1_1
 };
 
